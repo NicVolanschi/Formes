@@ -38,23 +38,16 @@ public class VisualiseurDeFormes extends JFrame
 	
 	class BoutonRectangleAction implements ActionListener
 	{
-		private VisualiseurDeFormes m_visualiseur;
-
-		BoutonRectangleAction( VisualiseurDeFormes visu )
-		{
-			m_visualiseur = visu;
-		 }
-		 
 		public void actionPerformed( ActionEvent e)
 		{
-			Random r = m_visualiseur.getRandom();
+			Random r = getRandom();
 			Rectangle c = new Rectangle(
 				r.nextInt( 200 ),
 				r.nextInt( 200 ),
 				r.nextInt( 80 )+ 20,
 				r.nextInt( 40 ) + 10, m_color );
-			m_visualiseur.getFormes().add( c );
-			m_visualiseur.repaint();
+			getFormes().add( c );
+			repaint();
 		}
 	}
 
@@ -81,7 +74,7 @@ public class VisualiseurDeFormes extends JFrame
 		m_panneau_boutons.add( b1 );
 
 		BoutonRectangleAction action_rectangle 
-			= new BoutonRectangleAction( this );
+			= new BoutonRectangleAction( );
 		JButton b2 = new JButton( "Rectangle" );
 		b2.addActionListener( action_rectangle );
 		m_panneau_boutons.add( b2 );
@@ -127,8 +120,11 @@ public class VisualiseurDeFormes extends JFrame
 			m_color = Color.black;
 		} );
 		m_panneau_boutons.add( b6 );
+
 		// Indique ce qu'il faut faire si on clic sur "fermer la fenetre".
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		m_panneau_dessin.addMouseListener(new RectangleParDragSouris(this));
 	}
 	
 	public static void main(String[] args) {
