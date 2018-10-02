@@ -30,7 +30,8 @@ public class VisualiseurDeFormes extends JFrame
 			Cercle c = new Cercle(
 				r.nextInt( 200 ),
 				r.nextInt( 200 ),
-			    r.nextInt( 40 )+ 20, m_color );
+				r.nextInt( 40 )+ 20, 
+				m_color );
 			m_visualiseur.getFormes().add( c );
 			m_visualiseur.repaint();
 		}
@@ -45,7 +46,8 @@ public class VisualiseurDeFormes extends JFrame
 				r.nextInt( 200 ),
 				r.nextInt( 200 ),
 				r.nextInt( 80 )+ 20,
-				r.nextInt( 40 ) + 10, m_color );
+				r.nextInt( 40 ) + 10, 
+				m_color );
 			getFormes().add( c );
 			repaint();
 		}
@@ -95,13 +97,15 @@ public class VisualiseurDeFormes extends JFrame
 					c = new Cercle(
 						r.nextInt( 200 ),
 						r.nextInt( 200 ),
-						r.nextInt( 40 )+ 20, m_color );		
+						r.nextInt( 40 )+ 20, 
+						m_color );
 				} else {
 					c = new Rectangle(
 						r.nextInt( 200 ),
 						r.nextInt( 200 ),
 						r.nextInt( 80 )+ 20,
-						r.nextInt( 40 ) + 10, m_color );		
+						r.nextInt( 40 ) + 10, 
+						m_color );
 				}
 				getFormes().add( c );
 				repaint();
